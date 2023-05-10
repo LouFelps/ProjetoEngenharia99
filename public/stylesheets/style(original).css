@@ -1,0 +1,46 @@
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-nav li {
+  margin-right: 20px;
+}
+
+
+nav {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: yellowgreen;
+  }
+  
+  .navbar-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2; /* cor azul */
+    border-radius: 10px /* arredondamento de 10 pixels */
+  }
+  .navbar-custom .nav-item {
+    margin-right: 10px;
+  }
+  
+  .navbar-custom .nav-link {
+    width: 100px;
+    text-align: center;
+  }
+    
