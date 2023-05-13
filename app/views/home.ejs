@@ -105,7 +105,8 @@
               <div class="input_main">
                   <div class="container">
                     <!-- <form method="post" action="../controllers/donateController.js"> -->
-                    <form method="post" action="/enviarDados">
+                    <h1>INSCREVA-SE</h1>
+                      <form method="post" action="/enviarDados" id="teste">
                       <div class="form-group">
                         <input type="text" id="nome" class="email-bt" placeholder="Nome" name="nome">
                       </div>
@@ -116,9 +117,9 @@
                         <input type="text" id="cidade" class="email-bt" placeholder="Cidade" name="cidade">
                       </div>
                       <div class="form-group">
-                        <input type="checkbox" style="height: 20px;" id="tipo1" class="email-bt" name="Jogo" value="0">
+                        <input type="checkbox" style="height: 20px; width: 15px; font-size: 15px;" id="tipo1" class="email-bt" name="Jogo" value="0">
                         <label for="Jogo">Jogo</label>
-                        <input type="checkbox" style="height: 20px;" id="tipo2" class="email-bt" name="Video Game" value="1">
+                        <input type="checkbox" style="height: 20px; width: 15px; font-size: 15px; margin-left: 5%;" id="tipo2" class="email-bt" name="Video Game" value="1">
                         <label for="Video Game">Video Game</label>
                       </div>
                       <div class="form-group">
@@ -127,7 +128,11 @@
                       <div class="form-group">
                           <textarea class="massage-bt" placeholder="Descricao" rows="5" id="comment" name="descricao"></textarea>
                       </div>
-                      <button id="enviarDados" type="submit" class="main_bt">SEND</a></button>
+                      <div class="form-group">
+                        <input type="checkbox" style="height: 20px; width: 15px; font-size: 15px;" id="tipo3" class="email-bt" name="doacaoInfo" value="3">
+                        <label for="doacaoInfo">Quero receber atualizações</label>
+                      </div>
+                      <button id="enviarDados" type="submit" class="main_bt" disabled>ENVIAR</a></button>
                     </form>
                   </div>
               </div>
@@ -199,7 +204,7 @@
           <div class="col-sm-6 col-md-6 col-lg-3">
             <h2 class="account_text">Newsletter</h2>
             <input type="" class="email_text" placeholder="Enter Your Email" name="Enter Your Email">
-            <button class="subscribr_bt">SUBSCRIBE</button>
+            <button class="subscribr_bt" >SUBSCRIBE</button>
           </div>
         </div>
       </div>
@@ -234,6 +239,58 @@
         closeEffect: "none"
     }
     )})
+    </script>
+    <script>
+      if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
+    } else {
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+    }
+    </script>
+
+    <script>
+
+              // Seleciona o formulário pelo ID
+              const form = document.querySelector('#teste');
+              // Seleciona o botão de envio pelo ID
+              const enviarBtn = document.querySelector('#enviarDados');
+              // Seleciona os campos de entrada de texto pelo nome
+              const nomeInput = document.querySelector('input[name="nome"]');
+              const emailInput = document.querySelector('input[name="email"]');
+              const cidadeInput = document.querySelector('input[name="cidade"]');
+              const contatoInput = document.querySelector('input[name="contato"]');
+              const descricaoInput = document.querySelector('textarea[name="descricao"]');
+
+              // Adiciona um ouvinte de eventos no formulário para interceptar o envio
+              form.addEventListener('submit', (event) => {
+                // Verifica se todos os campos de entrada de texto têm conteúdo
+                if (nomeInput.value === '' || emailInput.value === '' || cidadeInput.value === '' || contatoInput.value === '' || descricaoInput.value === '') {
+                  // Se um dos campos estiver vazio, impede o envio do formulário
+                  event.preventDefault();
+                  alert('Por favor, preencha todos os campos.');
+                }
+              });
+
+              // Adiciona ouvintes de eventos em todos os campos de entrada de texto
+              nomeInput.addEventListener('input', validarCampos);
+              emailInput.addEventListener('input', validarCampos);
+              cidadeInput.addEventListener('input', validarCampos);
+              contatoInput.addEventListener('input', validarCampos);
+              descricaoInput.addEventListener('input', validarCampos);
+
+              // Função que verifica se todos os campos de entrada de texto têm conteúdo
+              function validarCampos() {
+                if (nomeInput.value !== '' && emailInput.value !== '' && cidadeInput.value !== '' && contatoInput.value !== '' && descricaoInput.value !== '') {
+                  // Se todos os campos tiverem conteúdo, habilita o botão de envio
+                  enviarBtn.removeAttribute('disabled');
+                } else {
+                  // Se um dos campos estiver vazio, desabilita o botão de envio
+                  enviarBtn.setAttribute('disabled', 'disabled');
+                }
+              }
+
     </script>
 </body>
 </html>

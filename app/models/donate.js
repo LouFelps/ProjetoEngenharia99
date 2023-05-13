@@ -7,6 +7,7 @@ const Donate = function(donate) {
   this.tipo = donate.tipo;
   this.contato = donate.contato;
   this.descricao = donate.descricao;
+  this.doacaoRealizada = donate.doacaoRealizada;
 };
 
 Donate.create = function(newDonate) {
@@ -21,4 +22,6 @@ Donate.create = function(newDonate) {
     }
   });
 };
-module.exports = Donate;
+module.exports = {
+  Donate,
+}
